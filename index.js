@@ -10263,3 +10263,15 @@ const nonAutomaticIssues = issues.reduce(function(obj, issue) {
   }
   return obj;
 }, []);
+
+const $table = document.getElementById('results');
+
+$table.innerHTML = nonAutomaticIssues
+  .map(function(issue) {
+    return `<tr>
+      <td>${issue.body}</td>
+      <td>${issue.created_at}</td>
+      <td>${issue.state}</td>
+    </tr>`;
+  })
+  .join('');
